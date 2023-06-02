@@ -12,13 +12,11 @@
     <artifactId>im-business</artifactId>
     <packaging>pom</packaging>
     <modules>
-<!--        <module>mall-trade</module>-->
-<!--        <module>mall-product</module>-->
-<!--        <module>im-demo</module>-->
-<!--        <module>mall-base</module>-->
-<!--        <module>mall-marketing</module>-->
-<!--        <module>mall-im</module>-->
-<!--        <module>mall-comment</module>-->
+        <module>im-gateway</module>
+        <module>im-user</module>
+        <module>im-webapi</module>
+        <module>im-server</module>
+        <module>im-data</module>
     </modules>
 
     <dependencyManagement>
