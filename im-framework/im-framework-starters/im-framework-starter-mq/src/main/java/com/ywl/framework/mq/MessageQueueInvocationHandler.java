@@ -15,12 +15,7 @@ import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.apache.rocketmq.spring.support.RocketMQUtil;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageHeaders;
-import org.springframework.messaging.converter.CompositeMessageConverter;
-import org.springframework.messaging.converter.GenericMessageConverter;
-import org.springframework.messaging.converter.MessageConverter;
 import org.springframework.messaging.support.MessageBuilder;
-import org.springframework.util.ConcurrentReferenceHashMap;
-import org.springframework.util.MimeTypeUtils;
 
 import java.lang.reflect.*;
 import java.util.*;

@@ -1,4 +1,4 @@
-package com.msb.framework.common.mq;
+package com.ywl.framework.common.mq;
 
 
 /**

@@ -1,6 +1,6 @@
-package com.msb.framework.common.utils;
+package com.ywl.framework.common.utils;
 
-import com.msb.framework.common.model.TreeNode;
+import com.ywl.framework.common.model.TreeNode;
 import lombok.experimental.UtilityClass;
 import org.apache.commons.collections4.CollectionUtils;
 

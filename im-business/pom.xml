@@ -2,15 +2,35 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>han-im</artifactId>
+        <groupId>com.ywl.cloud</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.wenlong.yu</groupId>
     <artifactId>im-business</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+<!--        <module>mall-trade</module>-->
+<!--        <module>mall-product</module>-->
+<!--        <module>im-demo</module>-->
+<!--        <module>mall-base</module>-->
+<!--        <module>mall-marketing</module>-->
+<!--        <module>mall-im</module>-->
+<!--        <module>mall-comment</module>-->
+    </modules>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
-    
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.ywl.cloud</groupId>
+                <artifactId>im-framework-dependencies</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
 </project>

@@ -1,4 +1,4 @@
-package com.msb.framework.common.mq.annotation;
+package com.ywl.framework.common.mq.annotation;
 
 import java.lang.annotation.*;
 

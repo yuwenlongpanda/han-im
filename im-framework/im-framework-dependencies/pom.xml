@@ -34,7 +34,6 @@
         <swagger-annotations.version>1.5.22</swagger-annotations.version>
         <mybatis-plus.version>3.4.3.1</mybatis-plus.version>
         <kuaidi100.version>1.0.8</kuaidi100.version>
-<!--        <jeepay.version>1.3.0</jeepay.version>-->
         <IJPay.version>2.8.1</IJPay.version>
         <xxl-job.version>2.3.0</xxl-job.version>
         <skywalking.version>8.6.0</skywalking.version>
@@ -73,7 +72,8 @@
                     <exclusion>
                         <groupId>org.apache.dubbo</groupId>
                         <artifactId>dubbo</artifactId>
-                    </exclusion></exclusions>
+                    </exclusion>
+                </exclusions>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -154,11 +154,6 @@
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
-<!--            <dependency>-->
-<!--                <groupId>com.jeequan</groupId>-->
-<!--                <artifactId>jeepay-sdk-java</artifactId>-->
-<!--                <version>${jeepay.version}</version>-->
-<!--            </dependency>-->
             <dependency>
                 <groupId>com.xuxueli</groupId>
                 <artifactId>xxl-job-core</artifactId>
@@ -192,134 +187,49 @@
             <!-- 开发工具 end -->
 
             <!-- 框架包 -->
-<!--            <dependency>-->
-<!--                <groupId>com.ywl.cloud</groupId>-->
-<!--                <artifactId>horse-framework-common</artifactId>-->
-<!--                <version>${project.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>com.ywl.cloud</groupId>-->
-<!--                <artifactId>horse-framework-starter-web</artifactId>-->
-<!--                <version>${project.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>com.ywl.cloud</groupId>-->
-<!--                <artifactId>horse-framework-starter-redis</artifactId>-->
-<!--                <version>${project.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>com.ywl.cloud</groupId>-->
-<!--                <artifactId>horse-framework-starter-nacos</artifactId>-->
-<!--                <version>${project.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>com.ywl.cloud</groupId>-->
-<!--                <artifactId>horse-framework-starter-mysql</artifactId>-->
-<!--                <version>${project.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>com.ywl.cloud</groupId>-->
-<!--                <artifactId>horse-framework-starter-mq</artifactId>-->
-<!--                <version>${project.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>com.ywl.cloud</groupId>-->
-<!--                <artifactId>horse-framework-starter-job</artifactId>-->
-<!--                <version>${project.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>com.ywl.cloud</groupId>-->
-<!--                <artifactId>horse-framework-starter-seata</artifactId>-->
-<!--                <version>${project.version}</version>-->
-<!--            </dependency>-->
-<!--            &lt;!&ndash;框架包 end&ndash;&gt;-->
+            <dependency>
+                <groupId>com.ywl.cloud</groupId>
+                <artifactId>im-framework-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ywl.cloud</groupId>
+                <artifactId>im-framework-starter-web</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ywl.cloud</groupId>
+                <artifactId>im-framework-starter-redis</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ywl.cloud</groupId>
+                <artifactId>im-framework-starter-nacos</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ywl.cloud</groupId>
+                <artifactId>im-framework-starter-mysql</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ywl.cloud</groupId>
+                <artifactId>im-framework-starter-mq</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ywl.cloud</groupId>
+                <artifactId>im-framework-starter-job</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ywl.cloud</groupId>
+                <artifactId>im-framework-starter-seata</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--框架包 end-->
 
-<!--            &lt;!&ndash; API服务依赖  &ndash;&gt;-->
-<!--            <dependency>-->
-<!--                <groupId>com.ywl.cloud</groupId>-->
-<!--                <artifactId>horse-demo-api</artifactId>-->
-<!--                <version>${project.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>com.ywl.cloud</groupId>-->
-<!--                <artifactId>horse-im-api</artifactId>-->
-<!--                <version>${project.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>com.ywl.cloud</groupId>-->
-<!--                <artifactId>mall-im-api</artifactId>-->
-<!--                <version>${project.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>com.ywl.cloud</groupId>-->
-<!--                <artifactId>horse-user-api</artifactId>-->
-<!--                <version>${project.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>com.ywl.cloud</groupId>-->
-<!--                <artifactId>horse-user-auth</artifactId>-->
-<!--                <version>${project.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>com.google.protobuf</groupId>-->
-<!--                <artifactId>protobuf-java</artifactId>-->
-<!--                <version>${protobuf-java.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>com.ywl.cloud</groupId>-->
-<!--                <artifactId>horse-user-visitor</artifactId>-->
-<!--                <version>${project.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>com.ywl.cloud</groupId>-->
-<!--                <artifactId>mall-trade-api</artifactId>-->
-<!--                <version>${project.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>com.ywl.cloud</groupId>-->
-<!--                <artifactId>mall-product-api</artifactId>-->
-<!--                <version>${project.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>com.ywl.cloud</groupId>-->
-<!--                <artifactId>mall-base-api</artifactId>-->
-<!--                <version>${project.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>com.ywl.cloud</groupId>-->
-<!--                <artifactId>mall-marketing-api</artifactId>-->
-<!--                <version>${project.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>com.ywl.cloud</groupId>-->
-<!--                <artifactId>horse-third-api</artifactId>-->
-<!--                <version>${project.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>com.ywl.cloud</groupId>-->
-<!--                <artifactId>horse-push-api</artifactId>-->
-<!--                <version>${project.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>com.ywl.cloud</groupId>-->
-<!--                <artifactId>horse-pay-api</artifactId>-->
-<!--                <version>${project.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>com.ywl.cloud</groupId>-->
-<!--                <artifactId>mall-comment-api</artifactId>-->
-<!--                <version>${project.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>com.ywl.cloud</groupId>-->
-<!--                <artifactId>horse-sensitive-api</artifactId>-->
-<!--                <version>${project.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>com.ywl.cloud</groupId>-->
-<!--                <artifactId>horse-like-api</artifactId>-->
-<!--                <version>${project.version}</version>-->
-<!--            </dependency>-->
+            <!-- API服务依赖  -->
             <!-- API服务依赖 end -->
 
             <!--基础组件 -->

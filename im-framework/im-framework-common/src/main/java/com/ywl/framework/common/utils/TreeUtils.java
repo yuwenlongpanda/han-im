@@ -1,4 +1,4 @@
-package com.msb.framework.common.utils;
+package com.ywl.framework.common.utils;
 
 
 import org.apache.commons.lang3.StringUtils;

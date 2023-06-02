@@ -4,7 +4,6 @@ import com.ywl.framework.common.mq.MqMessage;
 import com.ywl.framework.common.mq.annotation.Topic;
 import com.ywl.framework.common.utils.SpringContextUtil;
 import com.ywl.framework.mq.annotation.ConsumerGroup;
-import lombok.var;
 import org.apache.rocketmq.client.AccessChannel;
 import org.apache.rocketmq.spring.annotation.ConsumeMode;
 import org.apache.rocketmq.spring.annotation.MessageModel;
@@ -33,10 +32,8 @@ import sun.reflect.annotation.AnnotationParser;
 import sun.reflect.annotation.AnnotationType;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;

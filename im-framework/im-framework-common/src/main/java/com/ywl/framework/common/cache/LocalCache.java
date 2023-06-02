@@ -1,4 +1,4 @@
-package com.msb.framework.common.cache;
+package com.ywl.framework.common.cache;
 
 import org.springframework.context.SmartLifecycle;
 

@@ -1,4 +1,4 @@
-package com.msb.framework.common.model;
+package com.ywl.framework.common.model;
 
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

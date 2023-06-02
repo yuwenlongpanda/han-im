@@ -1,4 +1,4 @@
-package com.msb.framework.common.model;
+package com.ywl.framework.common.model;
 
 import lombok.Data;
 

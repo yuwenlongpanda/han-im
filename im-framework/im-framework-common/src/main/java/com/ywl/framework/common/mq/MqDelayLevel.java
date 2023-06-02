@@ -1,6 +1,6 @@
-package com.msb.framework.common.mq;
+package com.ywl.framework.common.mq;
 
-import com.msb.framework.common.model.IDict;
+import com.ywl.framework.common.model.IDict;
 
 /**
  * mq 延时时间等级

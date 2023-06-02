@@ -1,4 +1,4 @@
-package com.msb.framework.common.constant;
+package com.ywl.framework.common.constant;
 
 public interface CommonConst {
 

@@ -1,4 +1,4 @@
-package com.msb.framework.common.cache;
+package com.ywl.framework.common.cache;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.lang.Nullable;

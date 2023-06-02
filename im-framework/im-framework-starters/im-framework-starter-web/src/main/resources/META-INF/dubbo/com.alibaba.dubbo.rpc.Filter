@@ -1,1 +1,1 @@
-dubboExceptionFitler=com.msb.framework.web.dubbo.DubboExceptionFilter
+dubboExceptionFitler=DubboExceptionFilter

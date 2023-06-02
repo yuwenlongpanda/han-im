@@ -5,7 +5,6 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.alibaba.csp.sentinel.slots.block.degrade.DegradeException;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowException;
 import com.alibaba.fastjson.JSON;
-import com.ywl.framework.web.result.BizException;
 import com.ywl.framework.web.result.ResultWrapper;
 import org.springframework.stereotype.Component;
 

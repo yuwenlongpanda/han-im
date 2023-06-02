@@ -6,5 +6,5 @@ ${AnsiColor.BRIGHT_GREEN}
 |▁▁▁▁|▁▁▁▁||▁▁▁▁▁|▁▁| |▁▁▁▁▁|▁▁▁▁▁|
 ${AnsiColor.GREEN}
 Spring Boot Version${spring-boot.formatted-version}
-Horse Framework Version: 1.0-SNAPSHOT
+im Framework Version: 1.0-SNAPSHOT
 ${AnsiColor.DEFAULT}

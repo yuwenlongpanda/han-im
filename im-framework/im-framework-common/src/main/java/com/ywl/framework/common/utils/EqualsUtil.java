@@ -1,6 +1,6 @@
-package com.msb.framework.common.utils;
+package com.ywl.framework.common.utils;
 
-import com.msb.framework.common.model.IDict;
+import com.ywl.framework.common.model.IDict;
 import lombok.NonNull;
 
 import java.util.Objects;
