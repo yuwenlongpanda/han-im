@@ -1,0 +1,10 @@
+${AnsiColor.BRIGHT_GREEN}
+.____ ____${AnsiColor.BRIGHT_YELLOW}🐎${AnsiColor.BRIGHT_GREEN}
+|    |    |
+|    `    |.--—--.-——-.--—--.--—--.
+|         ||  —  |  ._|▁▁ -—|  —▁▁|
+|▁▁▁▁|▁▁▁▁||▁▁▁▁▁|▁▁| |▁▁▁▁▁|▁▁▁▁▁|
+${AnsiColor.GREEN}
+Spring Boot Version${spring-boot.formatted-version}
+Horse Framework Version: 1.0-SNAPSHOT
+${AnsiColor.DEFAULT}
