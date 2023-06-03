@@ -230,6 +230,11 @@
             <!--框架包 end-->
 
             <!-- API服务依赖  -->
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+                <version>${protobuf-java.version}</version>
+            </dependency>
             <!-- API服务依赖 end -->
 
             <!--基础组件 -->
