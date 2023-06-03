@@ -25,10 +25,6 @@
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.ywl.cloud</groupId>-->
-<!--            <artifactId>im-user-auth</artifactId>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>com.ywl.cloud</groupId>
             <artifactId>im-framework-starter-mq</artifactId>
@@ -38,10 +34,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.ywl.cloud</groupId>-->
-<!--            <artifactId>im-user-api</artifactId>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
@@ -63,13 +55,10 @@
             <artifactId>im-framework-starter-redis</artifactId>
         </dependency>
 
+
         <dependency>
             <groupId>com.ywl.cloud</groupId>
             <artifactId>im-framework-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.ywl.cloud</groupId>
-            <artifactId>im-framework-starter-mysql</artifactId>
         </dependency>
 
         <!--netty4-->
