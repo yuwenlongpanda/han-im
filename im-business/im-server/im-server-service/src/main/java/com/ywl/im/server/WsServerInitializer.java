@@ -1,6 +1,6 @@
 package com.ywl.im.server;
 
-import com.ywl.im.common.config.IServer;
+import com.ywl.im.server.core.Server;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Configuration;
 
 @Slf4j
 @Configuration
-public class WsServerInit implements CommandLineRunner {
+public class WsServerInitializer implements CommandLineRunner {
 
     @Autowired
-    IServer server;
+    Server server;
 
     @Override
     public void run(String... args) throws Exception {

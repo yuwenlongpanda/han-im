@@ -1,5 +1,6 @@
-package com.ywl.im.common.config;
+package com.ywl.im.server.core.impl;
 
+import com.ywl.im.server.core.ImProperties;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -7,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Data
 @Component
 @ConfigurationProperties(prefix = "im.server")
-public class ServerProperties implements ImProperties {
+public class DefaultImProperties implements ImProperties {
 
     /**
      * ip和端口号分割符

@@ -1,4 +1,4 @@
-package com.ywl.im.common.config;
+package com.ywl.im.config;
 
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -13,6 +13,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 public class ThreadPoolConfig {
     @Resource
     private ThreadPoolProperties threadPoolProperties;
+
     @Bean
     public ScheduledThreadPoolExecutor scheduledThreadPoolExecutor() {
         return new ScheduledThreadPoolExecutor(threadPoolProperties.getCoreSize(), r -> {
@@ -22,3 +23,4 @@ public class ThreadPoolConfig {
         }, new ThreadPoolExecutor.DiscardOldestPolicy());
     }
 }
+

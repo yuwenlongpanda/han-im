@@ -3,7 +3,7 @@ package com.ywl.im.server.handler;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.handler.codec.http.websocketx.WebSocketFrame;
+import io.netty.handler.codec.http.websocketx.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -16,11 +16,8 @@ import org.springframework.stereotype.Component;
 @ChannelHandler.Sharable
 @Slf4j
 @Component
-public class  WsServerMessageHandler extends SimpleChannelInboundHandler<WebSocketFrame> {
-    @Override
-    protected void channelRead0(ChannelHandlerContext ctx, WebSocketFrame msg) throws Exception {
+public class MessageHandler extends SimpleChannelInboundHandler<WebSocketFrame> {
 
-    }
 //    @Resource
 //    private UserChannelManager userChannelManager;
 //    @Resource
@@ -35,19 +32,19 @@ public class  WsServerMessageHandler extends SimpleChannelInboundHandler<WebSock
 //    // 消息服务对象的引用缓存
 //    private final Map<Class<?>, AbstractClientMessageService<?>> messageServiceMap = new HashMap<>();
 //    private final Object lock = new Object();
-//
-//    @Override
-//    public void channelRead0(ChannelHandlerContext ctx, WebSocketFrame webSocketFrame) {
-//        if (webSocketFrame instanceof PingWebSocketFrame) {
+
+    @Override
+    public void channelRead0(ChannelHandlerContext ctx, WebSocketFrame webSocketFrame) {
+        if (webSocketFrame instanceof PingWebSocketFrame) {
 //            pingWebSocketFrameHandler(ctx, (PingWebSocketFrame) webSocketFrame);
-//        } else if (webSocketFrame instanceof TextWebSocketFrame) {
+        } else if (webSocketFrame instanceof TextWebSocketFrame) {
 //            System.out.println(webSocketFrame);
-//        } else if (webSocketFrame instanceof CloseWebSocketFrame) {
+        } else if (webSocketFrame instanceof CloseWebSocketFrame) {
 //            closeWebSocketFrameHandler(ctx, (CloseWebSocketFrame) webSocketFrame);
-//        } else if (webSocketFrame instanceof BinaryWebSocketFrame) {
+        } else if (webSocketFrame instanceof BinaryWebSocketFrame) {
 //            binaryWebSocketFrameHandler(ctx, (BinaryWebSocketFrame)webSocketFrame);
-//        }
-//    }
+        }
+    }
 //
 //    private void binaryWebSocketFrameHandler(ChannelHandlerContext ctx, BinaryWebSocketFrame webSocketFrame) {
 //        // protobuf 处理

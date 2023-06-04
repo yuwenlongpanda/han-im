@@ -14,26 +14,8 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @ChannelHandler.Sharable
-public class WsServerHandshakeHandler extends ChannelInboundHandlerAdapter {
-//    @Resource
-//    private ChannelManager channelManager;
-//    @Resource
-//    private UserChannelManager userChannelManager;
-//    @Resource
-//    private UserConnectService userConnectService;
-//    @Resource
-//    private ThirdSystemConfigService thirdSystemConfigService;
-//    @Resource
-//    private InvalidTicketService invalidTicketService;
-//    @Resource
-//    private NettyClusterManager nettyClusterManager;
-//    @Resource
-//    private StoreConfigService storeConfigService;
-//    @Resource
-//    private StoreWaiterChannelManager storeWaiterChannelManager;
-//    @Resource
-//    private StoreWaiterService storeWaiterService;
-//
+public class HandshakeHandler extends ChannelInboundHandlerAdapter {
+
 //    @Override
 //    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 //        if (msg instanceof FullHttpRequest) {
@@ -100,9 +82,6 @@ public class WsServerHandshakeHandler extends ChannelInboundHandlerAdapter {
 //            return false;
 //        }
 //    }
-//
-//    @Override
-//    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-//        log.error("服务端连接发生错误 {} {}", ctx.channel(), cause.getMessage());
-//    }
+
+
 }
