@@ -33,6 +33,13 @@ public interface ImProperties {
     int getClientReaderIdleTimeSeconds();
 
     /**
+     * 获取客户端续期时间（秒）
+     *
+     * @return 客户端续期时间
+     */
+    int getClientRenewalSeconds();
+
+    /**
      * 获取最大内容长度
      *
      * @return 最大内容长度

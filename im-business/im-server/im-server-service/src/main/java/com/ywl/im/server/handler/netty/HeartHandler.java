@@ -1,4 +1,4 @@
-package com.ywl.im.server.handler;
+package com.ywl.im.server.handler.netty;
 
 import io.netty.channel.ChannelDuplexHandler;
 import io.netty.channel.ChannelHandler;
