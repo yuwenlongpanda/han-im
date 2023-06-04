@@ -1,6 +1,6 @@
 package com.ywl.im.server.utils;
 
-import com.ywl.im.server.enums.ConnectTypeEnum;
+import com.ywl.im.enums.ConnectTypeEnum;
 import com.ywl.im.server.models.HandshakeParam;
 import io.netty.handler.codec.http.FullHttpRequest;
 

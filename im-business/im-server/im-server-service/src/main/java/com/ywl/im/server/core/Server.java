@@ -1,5 +1,7 @@
 package com.ywl.im.server.core;
 
+import com.ywl.framework.common.callback.ImCallback;
+
 public interface Server {
     /**
      * 获取服务器的端口号
@@ -18,7 +20,7 @@ public interface Server {
     /**
      * 启动服务器服务
      */
-    void start();
+    void start(ImCallback callback);
 
     /**
      * 关闭服务器

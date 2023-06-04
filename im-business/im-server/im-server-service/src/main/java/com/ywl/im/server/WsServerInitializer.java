@@ -1,6 +1,10 @@
 package com.ywl.im.server;
 
+import com.alibaba.nacos.api.exception.NacosException;
+import com.ywl.framework.common.callback.ImCallback;
 import com.ywl.im.server.core.Server;
+import com.ywl.im.server.handler.RedisHandler;
+import com.ywl.im.server.nacos.NacosService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -11,7 +15,12 @@ import org.springframework.context.annotation.Configuration;
 public class WsServerInitializer implements CommandLineRunner {
 
     @Autowired
-    Server server;
+    private Server server;
+    @Autowired
+    private NacosService nacosService;
+    @Autowired
+    private RedisHandler redisHandler;
+
 
     @Override
     public void run(String... args) throws Exception {
@@ -19,16 +28,18 @@ public class WsServerInitializer implements CommandLineRunner {
     }
 
     private void initWsServer() throws Exception {
-        server.start();
+        ImCallback startCallback = () -> {
+            ImCallback callback = () -> {
+                redisHandler.addNettyServer(server.getIp(), server.getPort());
+            };
 
-        new Thread(() -> {
+            try {
+                nacosService.registerInstance("han-im-netty", server.getIp(), server.getPort(), "DEFAULT", callback);
+            } catch (NacosException e) {
+                throw new RuntimeException(e);
+            }
+        };
 
-            // 作为客户端连接redis中保存的其他服务器
-
-            // 将netty服务注册到nacos中 同时将当前netty服务添加到redis中
-
-            // 定时轮循到nacos 监听是否有新的服务器注册上来 注册上来 进行连接
-
-        }).start();
+        server.start(startCallback);
     }
 }

@@ -1,4 +1,4 @@
-package com.ywl.im.server.enums;
+package com.ywl.im.enums;
 
 
 import com.ywl.framework.common.model.IDict;

@@ -50,10 +50,13 @@ public class WsChannelInitializer extends ChannelInitializer<SocketChannel> {
         // 握手处理
         pipeline.addLast(handshakeHandler);
 
-        //websocket支持,设置路由
+        // websocket支持,设置路由
+        // 默认情况下，WebSocketServerProtocolHandler会处理关闭帧（CloseFrame）和Ping帧（PingFrame），并自动发送相应的Pong帧（PongFrame）
+        // WebSocketServerProtocolHandler会自动处理WebSocket的握手和帧的发送与接收，而你的自定义Handler可以专注于处理WebSocket消息的业务逻辑
         pipeline.addLast(new WebSocketServerProtocolHandler(defaultImProperties.getWebSocketPrefix(), true));
 
         // 消息处理
+        // 在自定义Handler中，通过判断消息类型来区分处理逻辑。WebSocket消息可以分为文本消息和二进制消息两种类型
         pipeline.addLast(messageHandler);
     }
 

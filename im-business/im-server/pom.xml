@@ -14,6 +14,7 @@
     <modules>
         <module>im-server-api</module>
         <module>im-server-service</module>
+        <module>im-server-proxy</module>
     </modules>
 
     <properties>

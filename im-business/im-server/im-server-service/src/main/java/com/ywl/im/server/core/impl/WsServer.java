@@ -1,5 +1,6 @@
 package com.ywl.im.server.core.impl;
 
+import com.ywl.framework.common.callback.ImCallback;
 import com.ywl.im.server.channel.WsChannelInitializer;
 import com.ywl.im.server.core.ImProperties;
 import com.ywl.im.server.core.Server;
@@ -54,7 +55,7 @@ public class WsServer implements Server {
     }
 
     @Override
-    public void start() {
+    public void start(ImCallback callback) {
         synchronized (lock) {
             if (isStart()) {
                 log.error("重复启动 {}", this);
@@ -77,12 +78,12 @@ public class WsServer implements Server {
                 this.ip = InetAddress.getLocalHost().getHostAddress();  // 获取服务器的 IP 地址
                 log.info("服务器 {}:{} 启动", getIp(), getPort());
                 isStart = true;  // 标记服务器已启动
+                if (callback != null) {
+                    callback.onSuccess();
+                }
 
                 // 监听服务器通道关闭事件
-                channel.closeFuture().addListener((ChannelFutureListener) channelFuture1 -> {
-                    log.error("服务器关闭...");
-                    shutdown();  // 执行服务器关闭操作
-                });
+                channel.closeFuture().addListener((ChannelFutureListener) channelFuture1 -> shutdown());
             } catch (Exception e) {
                 log.error("启动服务器时出现异常", e);
                 shutdown();  // 出现异常时执行服务器关闭操作
@@ -92,6 +93,8 @@ public class WsServer implements Server {
 
     @Override
     public void shutdown() {
+        log.error("服务器关闭...");
+
         if (boos != null) {
             boos.shutdownGracefully();
         }

@@ -1,6 +1,6 @@
 package com.ywl.im.server.models;
 
-import com.ywl.im.server.enums.ConnectTypeEnum;
+import com.ywl.im.enums.ConnectTypeEnum;
 import lombok.Data;
 
 /**

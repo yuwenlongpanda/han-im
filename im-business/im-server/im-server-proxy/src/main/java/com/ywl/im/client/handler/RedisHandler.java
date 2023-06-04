@@ -1,12 +1,16 @@
-package com.ywl.im.server.handler;
+package com.ywl.im.client.handler;
 
 import com.ywl.framework.redis.RedisClient;
+import com.ywl.im.client.utils.NetworkAddressUtil;
 import com.ywl.im.constant.RedisConstant;
-import com.ywl.im.server.core.ImProperties;
-import com.ywl.im.server.utils.NetworkAddressUtil;
+import com.ywl.im.models.ServerAddress;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 
@@ -20,8 +24,6 @@ import java.util.concurrent.TimeUnit;
 public class RedisHandler {
     @Resource
     private RedisClient redisClient;
-    @Resource
-    private ImProperties imProperties;
 
     /**
      * 释放服务器连接数
@@ -64,17 +66,17 @@ public class RedisHandler {
     }
 
 
-    /**
-     * 记录用户连接的服务器地址 ip:port
-     *
-     * @param userId 用户id
-     */
-    public void addUserServerAddress(String userId, String address, int sysId) {
-        String userAddressKey = getUserAddressKey(sysId, userId, address);
-        redisClient.set(userAddressKey, "", imProperties.getClientRenewalSeconds());
-
-        addUserServerAddressSet(userId, address, sysId);
-    }
+//    /**
+//     * 记录用户连接的服务器地址 ip:port
+//     *
+//     * @param userId 用户id
+//     */
+//    public void addUserServerAddress(String userId, String address, int sysId) {
+//        String userAddressKey = getUserAddressKey(sysId, userId, address);
+//        redisClient.set(userAddressKey, "", imProperties.getClientRenewalSeconds());
+//
+//        addUserServerAddressSet(userId, address, sysId);
+//    }
 //
 //    /**
 //     * 记录用户连接的服务器地址 ip:port
@@ -159,25 +161,26 @@ public class RedisHandler {
 //        redisClient.set(traceIdKey, "", TRACE_ID_EXPIRE_DAYS, TimeUnit.DAYS);
 //    }
 //
-    /**
-     * 添加netty服务到redis中
-     *
-     * @param ip
-     * @param port
-     */
-    public void addNettyServer(String ip, int port) {
-        redisClient.zAdd(RedisConstant.NETTY_SERVER_ZSET_KEY, NetworkAddressUtil.getAddress(ip, port), 0L);
-    }
-//
 //    /**
 //     * 添加netty服务到redis中
 //     *
 //     * @param ip
 //     * @param port
 //     */
-//    public void addNettyServerIfNotExist(String ip, int port) {
-//        redisClient.zAddIfNotExist(NETTY_SERVER_ZSET_KEY, AddressUtil.address(ip, port), 0L);
+//    public void addNettyServer(String ip, int port) {
+//        redisClient.zAdd(NETTY_SERVER_ZSET_KEY, AddressUtil.address(ip, port), 0L);
 //    }
+//
+
+    /**
+     * 添加netty服务到redis中
+     *
+     * @param ip
+     * @param port
+     */
+    public void addNettyServerIfNotExist(String ip, int port) {
+        redisClient.zAddIfNotExist(RedisConstant.NETTY_SERVER_ZSET_KEY, NetworkAddressUtil.getAddress(ip, port), 0L);
+    }
 //
 //    /**
 //     * 是否集群内ip
@@ -195,27 +198,34 @@ public class RedisHandler {
 //        return false;
 //    }
 //
-//    /**
-//     * 获取redis中记录的所有的netty服务
-//     *
-//     * @return
-//     */
-//    public List<WebSocketServer> allNettyServer() {
-//        LinkedHashSet<String> serverAddresss = redisClient.zAll(RedisConstant.NETTY_SERVER_ZSET_KEY);
-//        if (serverAddresss != null) {
-//            List<WebSocketServer> servers = new ArrayList<>(serverAddresss.size());
-//            for (String addresss : serverAddresss) {
-//                String ip = AddressUtil.parseIp(addresss);
-//                int port = AddressUtil.parsePort(addresss);
-//                WebSocketServer server = new WebSocketServer();
-//                server.setIp(ip);
-//                server.setPort(port);
-//                servers.add(server);
-//            }
-//            return servers;
-//        }
-//        return Collections.emptyList();
-//    }
+
+    /**
+     * 获取 Redis 中记录的所有 Netty 服务地址
+     *
+     * @return 所有 Netty 服务地址的列表
+     */
+    public List<ServerAddress> getAllNettyServers() {
+        // 从 Redis 中获取所有 Netty 服务地址
+        LinkedHashSet<String> serverAddresses = redisClient.zAll(RedisConstant.NETTY_SERVER_ZSET_KEY);
+        if (serverAddresses != null) {
+            List<ServerAddress> servers = new ArrayList<>(serverAddresses.size());
+            for (String address : serverAddresses) {
+                // 解析地址中的 IP 和端口
+                String ip = NetworkAddressUtil.parseIp(address);
+                int port = NetworkAddressUtil.parsePort(address);
+                // 创建 ServerAddress 对象，并设置 IP 和端口
+                ServerAddress server = new ServerAddress();
+                server.setIp(ip);
+                server.setPort(port);
+                // 将 ServerAddress 对象添加到列表中
+                servers.add(server);
+            }
+            return servers;
+        }
+        // 如果 Redis 中没有记录，则返回空列表
+        return Collections.emptyList();
+    }
+
 //
 //    /**
 //     * 用户端续期商铺会话心跳

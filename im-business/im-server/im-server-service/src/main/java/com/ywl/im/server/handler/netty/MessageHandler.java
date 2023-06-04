@@ -3,44 +3,24 @@ package com.ywl.im.server.handler.netty;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.handler.codec.http.websocketx.*;
+import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
+import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
+import io.netty.handler.codec.http.websocketx.WebSocketFrame;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 /**
  * 处理websocket中的消息
- *
- * @author zhou miao
- * @date 2022/04/09
  */
 @ChannelHandler.Sharable
 @Slf4j
 @Component
 public class MessageHandler extends SimpleChannelInboundHandler<WebSocketFrame> {
 
-//    @Resource
-//    private UserChannelManager userChannelManager;
-//    @Resource
-//    private ChannelManager channelManager;
-//    @Resource
-//    private StoreWaiterChannelManager storeWaiterChannelManager;
-//    @Resource
-////    private UserConnectService userConnectService;
-//    @Resource
-//    private ApplicationContext applicationContext;
-//
-//    // 消息服务对象的引用缓存
-//    private final Map<Class<?>, AbstractClientMessageService<?>> messageServiceMap = new HashMap<>();
-//    private final Object lock = new Object();
-
     @Override
     public void channelRead0(ChannelHandlerContext ctx, WebSocketFrame webSocketFrame) {
-        if (webSocketFrame instanceof PingWebSocketFrame) {
-//            pingWebSocketFrameHandler(ctx, (PingWebSocketFrame) webSocketFrame);
-        } else if (webSocketFrame instanceof TextWebSocketFrame) {
-//            System.out.println(webSocketFrame);
-        } else if (webSocketFrame instanceof CloseWebSocketFrame) {
-//            closeWebSocketFrameHandler(ctx, (CloseWebSocketFrame) webSocketFrame);
+        if (webSocketFrame instanceof TextWebSocketFrame) {
+            System.out.println(((TextWebSocketFrame) webSocketFrame).text());
         } else if (webSocketFrame instanceof BinaryWebSocketFrame) {
 //            binaryWebSocketFrameHandler(ctx, (BinaryWebSocketFrame)webSocketFrame);
         }
@@ -82,28 +62,5 @@ public class MessageHandler extends SimpleChannelInboundHandler<WebSocketFrame> 
 //        return abstractClientMessageService;
 //    }
 //
-//    /**
-//     * 客户端发送断开请求处理
-//     *
-//     * @param ctx 通道上下文
-//     * @param frame 关闭消息体
-//     */
-//    private void closeWebSocketFrameHandler(ChannelHandlerContext ctx, CloseWebSocketFrame frame) {
-//        log.info("{} 申请关闭 {}", ctx.channel(), frame);
-//        channelManager.remove(ctx.channel());
-//        userChannelManager.removeChannel(ctx.channel());
-//        storeWaiterChannelManager.removeChannel(ctx.channel());
-//    }
-//
-//    /**
-//     * 处理客户端心跳包
-//     *
-//     * @param ctx 通道上下文
-//     * @param frame 关闭消息体
-//     */
-//    private void pingWebSocketFrameHandler(ChannelHandlerContext ctx, PingWebSocketFrame frame) {
-//        log.info("客户端发送心跳请求 {} {}", ctx.channel(), frame);
-//        ctx.channel().writeAndFlush(new PongWebSocketFrame());
-//    }
 
 }
