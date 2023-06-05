@@ -5,7 +5,7 @@ import com.ywl.framework.mq.annotation.ConsumerGroup;
 import com.ywl.im.client.core.impl.WsClient;
 import com.ywl.im.client.handler.RedisHandler;
 import com.ywl.im.client.utils.ClientUtil;
-import com.ywl.im.mq.model.ImMqMessage;
+import com.ywl.framework.common.model.ImMqMessage;
 import com.ywl.im.mq.topic.ImMessageTopic;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

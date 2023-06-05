@@ -1,4 +1,4 @@
-package com.ywl.im.mq.model;
+package com.ywl.framework.common.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

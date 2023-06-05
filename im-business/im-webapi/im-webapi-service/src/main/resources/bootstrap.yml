@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: @artifactId@
+
+server:
+  port: 5005
+  servlet:
+    context-path: /im
