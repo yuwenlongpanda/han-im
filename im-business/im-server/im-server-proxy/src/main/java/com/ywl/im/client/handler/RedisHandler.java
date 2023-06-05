@@ -7,10 +7,7 @@ import com.ywl.im.models.ServerAddress;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedHashSet;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 
@@ -91,20 +88,20 @@ public class RedisHandler {
 //
 //        addUserServerAddressSet(userId, address, sysId);
 //    }
-//
-//    /**
-//     * 用户连接的服务器记录中是否存在指定服务器
-//     *
-//     * @param userId  用户id
-//     * @param address 用户连接地址
-//     * @param sysId   系统id
-//     * @return 用户连接的服务器记录中是否存在指定服务器
-//     */
-//    public boolean existUserAddress(String userId, String address, int sysId) {
-//        String userAddressKey = getUserAddressKey(sysId, userId, address);
-//        return redisClient.exists(userAddressKey);
-//    }
-//
+
+    /**
+     * 用户连接的服务器记录中是否存在指定服务器
+     *
+     * @param userId  用户id
+     * @param address 用户连接地址
+     * @param sysId   系统id
+     * @return 用户连接的服务器记录中是否存在指定服务器
+     */
+    public boolean existUserAddress(String userId, String address, int sysId) {
+        String userAddressKey = getUserAddressKey(sysId, userId, address);
+        return redisClient.exists(userAddressKey);
+    }
+
 
     /**
      * 新增用户连接的服务器记录
@@ -117,16 +114,16 @@ public class RedisHandler {
         redisClient.sAdd(userAddressSetKey, address);
         redisClient.expire(userAddressSetKey, RedisConstant.USER_WEBSOCKET_ADDRESS_SET_TIME_DAYS, TimeUnit.DAYS);
     }
-//
-//    /**
-//     * 查询用户连接的所有服务器
-//     *
-//     * @param userId 用户id
-//     */
-//    public Set<String> userServerAddressSet(String userId, int sysId) {
-//        String userAddressSetKey = getUserAddressSetKey(sysId, userId);
-//        return redisClient.sGet(userAddressSetKey);
-//    }
+
+    /**
+     * 查询用户连接的所有服务器
+     *
+     * @param userId 用户id
+     */
+    public Set<String> userServerAddressSet(String userId, int sysId) {
+        String userAddressSetKey = getUserAddressSetKey(sysId, userId);
+        return redisClient.sGet(userAddressSetKey);
+    }
 //
 //    /**
 //     * 移除用户连接的某台服务器
