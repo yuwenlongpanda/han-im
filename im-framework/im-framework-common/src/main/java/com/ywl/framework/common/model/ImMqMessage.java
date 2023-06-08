@@ -30,6 +30,10 @@ public class ImMqMessage implements Serializable {
      */
     private String content;
     /**
+     * 消息创建的时间戳
+     */
+    private Long createTimeStamp;
+    /**
      * 消息接收者id集合
      */
     private List<String> toIds;
