@@ -20,6 +20,12 @@
             <groupId>com.ywl.cloud</groupId>
             <artifactId>im-framework-common</artifactId>
         </dependency>
+
+        <!--mybatis plus-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
